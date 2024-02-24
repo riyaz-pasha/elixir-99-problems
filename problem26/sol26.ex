@@ -1,5 +1,5 @@
 defmodule Problem26 do
-  def combinations(input,length), do: combinations_internal(input,length)
+  def combinations(input,length), do: combinations_internal(input,length, [])
 
 
   defp combinations_internal(_, 0, combination), do: [Enum.reverse(combination)]
@@ -10,10 +10,6 @@ defmodule Problem26 do
   defp combinations_internal([head|tail], length, combination) do
     combinations_internal(tail,length-1,[head | combination])
     ++ combinations_internal(tail,length,combination)
-  end
-
-  defp combinations_internal([head|tail], length) do
-    combinations_internal(tail,length-1,[head]) ++ combinations_internal(tail,length,[])
   end
 
 end
