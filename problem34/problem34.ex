@@ -3,6 +3,7 @@ ExUnit.start()
 defmodule Problem34 do
   def primeFactors(num) when num<=1, do: []
   def primeFactors(num) when rem(num,2)===0, do: [2 | primeFactors(trunc(num/2))]
+  def primeFactors(num) when rem(num,3)===0, do: [3 | primeFactors(trunc(num/3))]
   def primeFactors(num), do: [num]
 end
 
@@ -29,5 +30,9 @@ defmodule Problem34Tests do
     assert Problem34.primeFactors(6)===[2,3]
     assert Problem34.primeFactors(7)===[7]
     assert Problem34.primeFactors(8)===[2,2,2]
+  end
+
+  test "factors of 9" do
+    assert Problem34.primeFactors(9)===[3,3]
   end
 end
