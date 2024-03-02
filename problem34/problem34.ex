@@ -23,4 +23,11 @@ defmodule Problem34Tests do
   test "factors of 4" do
     assert Problem34.primeFactors(4)===[2,2]
   end
+
+  test "factors of 5,6,7,8" do
+    assert Problem34.primeFactors(5)===[5]
+    assert Problem34.primeFactors(6)===[2,3]
+    assert Problem34.primeFactors(7)===[7]
+    assert Problem34.primeFactors(8)===[2,2,2]
+  end
 end
