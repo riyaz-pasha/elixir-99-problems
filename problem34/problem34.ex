@@ -1,11 +1,10 @@
 ExUnit.start()
 
 defmodule Problem34 do
-  def primeFactors(num) when num<=1, do: []
-  def primeFactors(num) when rem(num,2)===0, do: [2 | primeFactors(trunc(num/2))]
-  def primeFactors(num) when rem(num,3)===0, do: [3 | primeFactors(trunc(num/3))]
-  def primeFactors(num) when rem(num,5)===0, do: [5 | primeFactors(trunc(num/5))]
-  def primeFactors(num), do: [num]
+  def primeFactors(num,_) when num<=1, do: []
+  def primeFactors(num, factor) when rem(num,factor)===0, do: [factor | primeFactors(trunc(num/factor))]
+  def primeFactors(num, factor), do: primeFactors(num,factor+1)
+  def primeFactors(num), do: primeFactors(num,2)
 end
 
 defmodule Problem34Tests do
@@ -47,5 +46,9 @@ defmodule Problem34Tests do
 
   test "factors of 25" do
     assert Problem34.primeFactors(25)===[5,5]
+  end
+
+  test "factors final" do
+    assert Problem34.primeFactors(2*2*3*3*3*5*7)===[2,2,3,3,3,5,7]
   end
 end
