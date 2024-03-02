@@ -1,8 +1,8 @@
 ExUnit.start()
 
 defmodule Problem34 do
-  def primeFactors(num) when num>1, do: [num]
-  def primeFactors(_num), do: []
+  def primeFactors(num) when num<=1, do: []
+  def primeFactors(num), do: [num]
 end
 
 defmodule Problem34Tests do
