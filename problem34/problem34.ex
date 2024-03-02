@@ -35,4 +35,12 @@ defmodule Problem34Tests do
   test "factors of 9" do
     assert Problem34.primeFactors(9)===[3,3]
   end
+
+  test "factors of 10,11,12,12,14" do
+    assert Problem34.primeFactors(10)===[2,5]
+    assert Problem34.primeFactors(11)===[11]
+    assert Problem34.primeFactors(12)===[2,2,3]
+    assert Problem34.primeFactors(13)===[13]
+    assert Problem34.primeFactors(14)===[2,7]
+  end
 end
